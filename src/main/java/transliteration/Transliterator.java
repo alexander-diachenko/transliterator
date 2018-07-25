@@ -5,5 +5,5 @@ package transliteration;
  */
 public interface Transliterator {
 
-    String ukrainianToLatin(final String string);
+    String transliterateToLatin(final String string);
 }

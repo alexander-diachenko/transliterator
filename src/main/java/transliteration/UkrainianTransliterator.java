@@ -3,10 +3,10 @@ package transliteration;
 /**
  * @author Alexander Diachenko.
  */
-public class TransliteratorImpl implements Transliterator {
+public class UkrainianTransliterator implements Transliterator {
 
     @Override
-    public String ukrainianToLatin(final String string) {
+    public String transliterateToLatin(final String string) {
         final StringBuilder builder = new StringBuilder();
         final char[] chars = string.toCharArray();
         for (int index = 0; index < chars.length; index++) {
