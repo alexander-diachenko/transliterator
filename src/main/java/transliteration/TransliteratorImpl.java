@@ -20,6 +20,10 @@ public class TransliteratorImpl implements Transliterator {
                             builder.append(ukrainian.getFirstLetter());
                             break;
                         } else {
+                            if(exception(chars, index)) {
+                                builder.append("gh");
+                                break;
+                            }
                             builder.append(ukrainian.getOtherLetter());
                             break;
                         }
@@ -30,6 +34,10 @@ public class TransliteratorImpl implements Transliterator {
         }
         builder.setLength(builder.length() - 1);
         return builder.toString();
+    }
+
+    private boolean exception(final char[] chars, final int index) {
+        return String.valueOf(chars[index]).equalsIgnoreCase("г") && String.valueOf(chars[index - 1]).equalsIgnoreCase("з");
     }
 
     private boolean isFirstLetter(final int i) {

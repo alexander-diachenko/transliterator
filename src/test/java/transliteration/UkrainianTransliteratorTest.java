@@ -52,4 +52,10 @@ public class UkrainianTransliteratorTest {
         final String latin = this.transliterator.ukrainianToLatin("Їжакевич Кадиївка Марїне");
         assertEquals("Yizhakevych Kadyivka Marine", latin);
     }
+
+    @Test
+    public void Згорани___Zghorany() {
+        final String latin = this.transliterator.ukrainianToLatin("Згорани");
+        assertEquals("Zghorany", latin);
+    }
 }
