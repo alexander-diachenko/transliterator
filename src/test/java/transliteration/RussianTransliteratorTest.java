@@ -34,4 +34,10 @@ public class RussianTransliteratorTest {
         final String latin = this.transliterator.transliterateToLatin("Это");
         assertEquals("E'to", latin);
     }
+
+    @Test
+    public void Центр___Centr() {
+        final String latin = this.transliterator.transliterateToLatin("Центр");
+        assertEquals("Centr", latin);
+    }
 }
