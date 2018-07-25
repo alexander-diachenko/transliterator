@@ -112,4 +112,10 @@ public class UkrainianTransliteratorTest {
         final String latin = this.transliterator.ukrainianToLatin("Корюківка Юрій");
         assertEquals("Koriukivka Yurii", latin);
     }
+
+    @Test
+    public void _1я____1ia() {
+        final String latin = this.transliterator.ukrainianToLatin("1я");
+        assertEquals("1ia", latin);
+    }
 }

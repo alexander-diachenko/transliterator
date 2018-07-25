@@ -23,10 +23,6 @@ public class TransliteratorImpl implements Transliterator {
         return builder.toString();
     }
 
-    private boolean isApostrophe(final char c) {
-        return c == '\'';
-    }
-
     private void transliterate(final StringBuilder builder, final char[] chars, final int index, final Ukrainian ukrainian) {
         if (isFirstLetter(chars, index)) {
             builder.append(ukrainian.getFirstLetter());
@@ -43,10 +39,15 @@ public class TransliteratorImpl implements Transliterator {
         return String.valueOf(chars[index]).equalsIgnoreCase("г") && String.valueOf(chars[index - 1]).equalsIgnoreCase("з");
     }
 
-    private boolean isFirstLetter(final char[] chars, final int i) {
-        if(i == 0) {
+    private boolean isFirstLetter(final char[] chars, final int index) {
+        if(index == 0) {
             return true;
         }
-        return !Character.isLetter(chars[i - 1]) && !isApostrophe(chars[i - 1]);
+        final char c = chars[index - 1];
+        return !Character.isLetterOrDigit(c) && !isApostrophe(c);
+    }
+
+    private boolean isApostrophe(final char c) {
+        return c == '\'';
     }
 }
