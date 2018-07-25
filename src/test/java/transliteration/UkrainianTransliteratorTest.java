@@ -22,4 +22,10 @@ public class UkrainianTransliteratorTest {
         final String latin = this.transliterator.ukrainianToLatin("а");
         assertEquals("a", latin);
     }
+
+    @Test
+    public void Aа_Aa() {
+        final String latin = this.transliterator.ukrainianToLatin("Аа");
+        assertEquals("Aa", latin);
+    }
 }
