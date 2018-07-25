@@ -10,20 +10,21 @@ public class UkrainianTransliterator implements Transliterator {
         final StringBuilder builder = new StringBuilder();
         final char[] chars = string.toCharArray();
         for (int index = 0; index < chars.length; index++) {
-            char c = chars[index];
             try {
-                final Ukrainian ukrainian = Ukrainian.valueOf(Character.toString(c));
-                transliterate(builder, chars, index, ukrainian);
+                transliterate(builder, chars, index);
             } catch (IllegalArgumentException exception) {
-                if(!isApostrophe(c)) {
-                    builder.append(c);
+                final char current = chars[index];
+                if (!isApostrophe(current)) {
+                    builder.append(current);
                 }
             }
         }
         return builder.toString();
     }
 
-    private void transliterate(final StringBuilder builder, final char[] chars, final int index, final Ukrainian ukrainian) {
+    private void transliterate(final StringBuilder builder, final char[] chars, final int index) {
+        final char current = chars[index];
+        final Ukrainian ukrainian = Ukrainian.valueOf(Character.toString(current));
         if (isFirstLetter(chars, index)) {
             builder.append(ukrainian.getFirstLetter());
         } else {
@@ -36,11 +37,12 @@ public class UkrainianTransliterator implements Transliterator {
     }
 
     private boolean exception(final char[] chars, final int index) {
-        return String.valueOf(chars[index]).equalsIgnoreCase("г") && String.valueOf(chars[index - 1]).equalsIgnoreCase("з");
+        return String.valueOf(chars[index]).equalsIgnoreCase("г")
+                && String.valueOf(chars[index - 1]).equalsIgnoreCase("з");
     }
 
     private boolean isFirstLetter(final char[] chars, final int index) {
-        if(index == 0) {
+        if (index == 0) {
             return true;
         }
         final char c = chars[index - 1];
