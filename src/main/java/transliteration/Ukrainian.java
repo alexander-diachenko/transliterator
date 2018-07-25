@@ -4,6 +4,7 @@ package transliteration;
  * @author Alexander Diachenko.
  */
 public enum Ukrainian {
+
     А("A", "A"),       а("a", "a"),
     Б("B", "B"),       б("b", "b"),
     В("V", "V"),       в("v", "v"),
@@ -46,10 +47,10 @@ public enum Ukrainian {
     }
 
     public String getFirstLetter() {
-        return firstLetter;
+        return this.firstLetter;
     }
 
     public String getOtherLetter() {
-        return otherLetter;
+        return this.otherLetter;
     }
 }
