@@ -26,7 +26,9 @@ public class TransliteratorImpl implements Transliterator {
                     }
                 }
             }
+            builder.append(" ");
         }
+        builder.setLength(builder.length() - 1);
         return builder.toString();
     }
 
