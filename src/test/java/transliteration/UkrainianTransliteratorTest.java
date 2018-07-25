@@ -12,13 +12,13 @@ public class UkrainianTransliteratorTest {
     private Transliterator transliterator = new TransliteratorImpl();
 
     @Test
-    public void A_A() {
+    public void А_A() {
         final String latin = this.transliterator.ukrainianToLatin("А");
         assertEquals("A", latin);
     }
 
     @Test
-    public void a_a() {
+    public void а_a() {
         final String latin = this.transliterator.ukrainianToLatin("а");
         assertEquals("a", latin);
     }
@@ -33,5 +33,11 @@ public class UkrainianTransliteratorTest {
     public void Я_Ya() {
         final String latin = this.transliterator.ukrainianToLatin("Я");
         assertEquals("Ya", latin);
+    }
+
+    @Test
+    public void Ая_Aia() {
+        final String latin = this.transliterator.ukrainianToLatin("Ая");
+        assertEquals("Aia", latin);
     }
 }

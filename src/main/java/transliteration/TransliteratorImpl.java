@@ -7,19 +7,21 @@ public class TransliteratorImpl implements Transliterator {
 
     @Override
     public String ukrainianToLatin(final String string) {
-        StringBuilder builder = new StringBuilder();
+        final StringBuilder builder = new StringBuilder();
         final Ukrainian[] ukrainians = Ukrainian.values();
         final String[] words = string.split(" ");
-        for (int index = 0, wordsLength = words.length; index < wordsLength; index++) {
-            final String word = words[index];
+        for (final String word : words) {
             final char[] chars = word.toCharArray();
-            for (Ukrainian ukrainian : ukrainians) {
-                for (char c : chars) {
+            for (int index = 0; index < chars.length; index++) {
+                char c = chars[index];
+                for (Ukrainian ukrainian : ukrainians) {
                     if (ukrainian.name().equals(Character.toString(c))) {
-                        if(isFirstLetter(index)) {
+                        if (isFirstLetter(index)) {
                             builder.append(ukrainian.getFirstLetter());
+                            break;
                         } else {
                             builder.append(ukrainian.getOtherLetter());
+                            break;
                         }
                     }
                 }
