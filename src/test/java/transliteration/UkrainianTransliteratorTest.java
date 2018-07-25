@@ -58,4 +58,34 @@ public class UkrainianTransliteratorTest {
         final String latin = this.transliterator.ukrainianToLatin("Згорани");
         assertEquals("Zghorany", latin);
     }
+
+    @Test
+    public void Юрій_Корюківка___Yurii_Koriukivka() {
+        final String latin = this.transliterator.ukrainianToLatin("Юрій Корюківка");
+        assertEquals("Yurii Koriukivka", latin);
+    }
+
+    @Test
+    public void Яготин_Костянтин_Знамянка___Yahotyn_Kostiantyn_Znamianka() {
+        final String latin = this.transliterator.ukrainianToLatin("Яготин Костянтин Знамянка");
+        assertEquals("Yahotyn Kostiantyn Znamianka", latin);
+    }
+
+    @Test
+    public void Йосипівка_Стрий_Олексій___Yosypivka_Stryi_Oleksii() {
+        final String latin = this.transliterator.ukrainianToLatin("Йосипівка Стрий Олексій");
+        assertEquals("Yosypivka Stryi Oleksii", latin);
+    }
+
+    @Test
+    public void Єнакієве_Гаєвич_Коропє___Yenakiieve_Haievych_Koropie() {
+        final String latin = this.transliterator.ukrainianToLatin("Єнакієве Гаєвич Короп'є");
+        assertEquals("Yenakiieve Haievych Koropie", latin);
+    }
+
+    @Test
+    public void Розгон_Rozghon() {
+        final String latin = this.transliterator.ukrainianToLatin("Розгон");
+        assertEquals("Rozghon", latin);
+    }
 }
