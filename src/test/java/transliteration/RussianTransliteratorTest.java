@@ -22,4 +22,16 @@ public class RussianTransliteratorTest {
         final String latin = this.transliterator.transliterateToLatin("'");
         assertEquals("'", latin);
     }
+
+    @Test
+    public void Алушта___Alushta() {
+        final String latin = this.transliterator.transliterateToLatin("Алушта");
+        assertEquals("Alushta", latin);
+    }
+
+    @Test
+    public void Это___Eto() {
+        final String latin = this.transliterator.transliterateToLatin("Это");
+        assertEquals("E'to", latin);
+    }
 }
