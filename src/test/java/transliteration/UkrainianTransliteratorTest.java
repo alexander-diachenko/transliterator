@@ -88,4 +88,16 @@ public class UkrainianTransliteratorTest {
         final String latin = this.transliterator.ukrainianToLatin("Розгон");
         assertEquals("Rozghon", latin);
     }
+
+    @Test
+    public void Пє_Pie() {
+        final String latin = this.transliterator.ukrainianToLatin("П'є");
+        assertEquals("Pie", latin);
+    }
+
+    @Test
+    public void Я1_Ya1() {
+        final String latin = this.transliterator.ukrainianToLatin("Я1");
+        assertEquals("Ya1", latin);
+    }
 }
