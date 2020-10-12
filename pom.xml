@@ -14,7 +14,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.resources.plugin>3.1.0</maven.resources.plugin>
         <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
-        <junit>4.12</junit>
+        <junit>4.13.1</junit>
     </properties>
 
     <dependencies>
